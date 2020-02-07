@@ -81,6 +81,16 @@ namespace Capstone
             void FeedMoney()
             {
                 Console.Clear();
+                Console.WriteLine(@"
+    ___________________________________
+    |#######====================#######|
+    |#(1)*UNITED STATES OF AMERICA*(1)#|
+    |#**          /===\   ********  **#|
+    |*# {G}      | (') |             #*|
+    |#*  ******  | /v\ |    O N E    *#|
+    |#(1)         \===/            (1)#|
+    |##=========ONE DOLLAR===========##|
+    ------------------------------------");
                 int fedMoney;
                 Console.WriteLine("Please insert cash ($1, $2, $5, and $10 bills only)");
                 fedMoney = Convert.ToInt32(Console.ReadLine());
@@ -119,7 +129,7 @@ namespace Capstone
                     Console.WriteLine("That product is not available");
                     Console.ReadLine();
                 }
-                // TODO : Change amount == 0 to amount == "SOLD OUT"
+                
                 else
                 {
                     Products product = productList[selectedProduct];
