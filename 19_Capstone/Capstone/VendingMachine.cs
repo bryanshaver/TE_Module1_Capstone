@@ -58,16 +58,17 @@ namespace Capstone
         public void DisplayItems()
         {
             Console.Clear();
+            Console.WriteLine(@"
+        +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+
+        |A|v|a|i|l|a|b|l|e| |I|t|e|m|s|
+        +-+-+-+-+-+-+-+-+-+ +-+-+-+-+-+");
+            Console.WriteLine();
+            Console.WriteLine($"{"Slot",-5} | {"Product Name",-18} | {"Price",-5} | {"Type",-6} | { "Amount",-10}");
+            Console.WriteLine();
+
             foreach (KeyValuePair<string, Products> kvp in productList)
             {
-                if (kvp.Value.Amount == 0)
-                {
-                    Console.WriteLine($"{kvp.Value.SlotLocation} | {kvp.Value.ProductName} | {kvp.Value.Price} | {kvp.Value.Type} | SOLD OUT");
-                }
-                else
-                {
-                    Console.WriteLine($"{kvp.Value.SlotLocation} | {kvp.Value.ProductName} | {kvp.Value.Price} | {kvp.Value.Type} | {kvp.Value.Amount}");
-                }
+                    Console.WriteLine($"{kvp.Value.SlotLocation, -5} | {kvp.Value.ProductName, -18} | {kvp.Value.Price, -5} | {kvp.Value.Type, -6} | { (kvp.Value.Amount == 0 ? "SOLD OUT" : kvp.Value.Amount.ToString()), -10}");
             }
             Console.WriteLine();
             Console.WriteLine("Hit enter to continue.");
@@ -177,6 +178,11 @@ namespace Capstone
             while (backToMain)
             {
                 Console.Clear();
+                Console.WriteLine(@"
++-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+
+|P|u|r|c|h|a|s|e| |O|p|t|i|o|n|s|
++-+-+-+-+-+-+-+-+ +-+-+-+-+-+-+-+");
+                Console.WriteLine();
                 Console.WriteLine("(1) Feed Money");
                 Console.WriteLine("(2) Select Product");
                 Console.WriteLine("(3) Finish Transaction");
