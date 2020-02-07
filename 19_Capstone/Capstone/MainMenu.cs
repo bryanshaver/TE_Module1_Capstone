@@ -11,30 +11,16 @@ namespace Capstone
         public void MainMenuMethod()
         {
             decimal totalSales = 0.00M;
-            #region totalSales
-            foreach (KeyValuePair<string, Products> product in vnMain.productList) // rename vars
-            {
-                totalSales += (product.Value.ItemSales * Convert.ToDecimal(product.Value.Price));
-            }
-            //foreach (KeyValuePair<string, Products> candy in vnMain.productList)
-            //{
-            //    totalSales += (candy.ItemSales * Convert.ToDecimal(candy.Price));
-            //}
-            //foreach (KeyValuePair<string, Products> drink in vnMain.productList)
-            //{
-            //    totalSales += (drink.ItemSales * Convert.ToDecimal(drink.Price));
-            //}
-            //foreach (KeyValuePair<string, Products> gum in vnMain.productList)
-            //{
-            //    totalSales += (gum.ItemSales * Convert.ToDecimal(gum.Price));
-            //}
-            #endregion
 
             void SalesReport()
             {
                 using(StreamWriter sw = new StreamWriter("SalesReport.txt"))
                 {
-                    foreach(KeyValuePair<string, Products> product in vnMain.productList)
+                    foreach (KeyValuePair<string, Products> product in vnMain.productList) 
+                    {
+                        totalSales += (product.Value.ItemSales * Convert.ToDecimal(product.Value.Price));
+                    }
+                    foreach (KeyValuePair<string, Products> product in vnMain.productList)
                     {
                         sw.WriteLine($"{product.Value.ProductName} | {product.Value.ItemSales}");
                     }
